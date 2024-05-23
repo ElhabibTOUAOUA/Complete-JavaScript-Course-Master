@@ -36,33 +36,6 @@ let description =
 
 console.log(description);
 
-
-let massMark1 = 78,
-	heightMark1 = 1.69;
-let massJohn1 = 92,
-	heightJohn1 = 1.95;
-
-let massMark2 = 95,
-	heightMark2 = 1.88;
-let massJohn2 = 85,
-	heightJohn2 = 1.76;
-
-let BMIMark1 = massMark1 / (heightMark1 * heightMark1);
-let BMIJohn1 = massJohn1 / (heightJohn1 * heightJohn1);
-
-let BMIMark2 = massMark2 / (heightMark2 * heightMark2);
-let BMIJohn2 = massJohn2 / (heightJohn2 * heightJohn2);
-
-console.log(BMIMark1, BMIJohn1);
-console.log(BMIMark2, BMIJohn2);
-
-let markHigherBMI1 = BMIMark1 > BMIJohn1;
-let markHigherBMI2 = BMIMark2 > BMIJohn2;
-
-console.log(markHigherBMI1);
-console.log(markHigherBMI2);
-*/
-
 let firstName = "Elhabib";
 let lastName = "TOUAOUA";
 let birthday = 1996;
@@ -87,3 +60,96 @@ let elhabib2 = `I'm ${lastName} ${firstName}, a ${
 } years old ${job}!`;
 
 console.log(elhabib2);
+
+console.log(`String
+with multiple
+lines`);
+
+let massMark = 78,
+	heightMark = 1.69;
+let massJohn = 92,
+	heightJohn = 1.95;
+
+// let massMark = 95,
+// 	heightMark = 1.88;
+// let massJohn = 85,
+// 	heightJohn = 1.76;
+
+let BMIMark = (massMark / (heightMark * heightMark)).toFixed(2);
+let BMIJohn = (massJohn / (heightJohn * heightJohn)).toFixed(2);
+
+console.log(BMIMark, BMIJohn);
+
+let markHigherBMI = BMIMark > BMIJohn;
+
+if (markHigherBMI) {
+	console.log(`Mark's BMI ${BMIMark} is higher than John's ${BMIJohn}`);
+} else {
+	console.log(`John's's BMI ${BMIJohn} is higher than Mark's ${BMIMark}`);
+}
+
+
+
+// Type Conversion
+let inputYear = "1996";
+let currentYear = "2010";
+console.log(Number(currentYear) + Number(inputYear));
+
+// Type coercion
+// Type Coercion
+console.log("I'm " + 27 + " years old");
+// Output " I'm 27 years old" String
+console.log(("23" * "3") / 10);
+// Output 10 number
+
+console.log(Boolean(0));
+console.log(Boolean(""));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(NaN));
+
+
+const age = 18;
+if (age === 18) console.log("You are an Adult Now!!");
+else console.log("You Still Minor");
+
+if ("18" == 18) console.log("The are equal !!!");
+else console.log("They are not ");
+
+
+const hasDriverLicense = true;
+const hasGoodVision = true;
+const isTired = false;
+
+if (hasDriverLicense && hasGoodVision && !isTired)
+	console.log("Can Drive safely");
+else console.log("Someone else should drive");
+
+
+const scoreDolphins = (96 + 108 + 89) / 3;
+const scoreKoalas = (88 + 91 + 110) / 3;
+
+// const scoreDolphins = (97 + 112 + 101) / 3;
+// const scoreKoalas = (109 + 95 + 123) / 3;
+
+// const scoreDolphins = (97 + 112 + 101) / 3;
+// const scoreKoalas = (109 + 95 + 106) / 3;
+
+if (scoreDolphins > scoreKoalas) console.log(`Dolphins wins the trophy`);
+else if (scoreDolphins < scoreKoalas) console.log(`Koalas wins the trophy`);
+else console.log(`Both win the trophy`);
+
+
+// BONUS 1
+
+const scoreDolphins = (96 + 108 + 89) / 3;
+const scoreKoalas = (88 + 91 + 110) / 3;
+
+if (scoreDolphins > scoreKoalas && scoreDolphins >= 100)
+	console.log(`Dolphins wins the trophy 🏆`);
+else if (scoreDolphins < scoreKoalas && scoreKoalas >= 100)
+	console.log(`Koalas wins the trophy 🏆`);
+else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100)
+	console.log(`Both win the trophy`);
+else console.log("No one wins");
+*/
