@@ -184,4 +184,44 @@ function getUsername() {
 // let username = getUsername() || "Guest";
 let username = getUsername() ? getUsername() : "Guest";
 console.log(username);
+
+const day = "monday";
+
+switch (day) {
+	case "monday": // here it does a strict === comparison with day variable
+		console.log("Making Week Plan");
+		break;
+	case "tuesday":
+		console.log("Taking JS course");
+		break;
+	case "wednesday":
+	case "thursday":
+		console.log("Doing some side projects");
+		break;
+	case "friday":
+	case "saturday":
+		console.log("Study days of Quran and Sunnah");
+	default:
+		console.log("Not a valid day !");
+}
+
+
+const age = 17;
+
+const drink = age >= 18 ? "Coffee" : "Water";
+console.log(drink);
+
+const bill = 275;
+let tip =
+	bill > 0 && bill >= 50 && bill <= 300
+		? bill * 0.15
+		: bill > 300
+		? bill * 0.2
+		: 0;
+
+console.log(
+	`The bill was ${bill}, the tip was ${tip}, and the total value ${
+		bill + tip
+	}`
+);
 */
