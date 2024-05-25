@@ -152,4 +152,36 @@ else if (scoreDolphins < scoreKoalas && scoreKoalas >= 100)
 else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100)
 	console.log(`Both win the trophy`);
 else console.log("No one wins");
+
+const day = "monday";
+switch (day) {
+	case "saturday":
+		console.log("Write a plan of the New week");
+		break;
+	case "sunday":
+		console.log("Execute the first task of the plan");
+		break;
+	case "monday":
+	case "tuesday":
+		console.log("Watching some lectures of JS course");
+		break;
+	case "wednesday":
+		console.log("practice what I've learned New");
+		break;
+	case "thursday":
+	case "friday":
+		console.log("Relaxing and worshiping time");
+		break;
+	default:
+		console.log("Not a day!! Try again please");
+}
+
+
+function getUsername() {
+	return prompt("Enter your user name please!");
+}
+
+// let username = getUsername() || "Guest";
+let username = getUsername() ? getUsername() : "Guest";
+console.log(username);
 */
