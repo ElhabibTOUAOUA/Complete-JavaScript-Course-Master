@@ -174,8 +174,8 @@ let tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 let totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(totals);
 
-*/
 
+*/
 // Objects
 
 let elhabib = {
@@ -184,15 +184,246 @@ let elhabib = {
 	birthDay: 1996,
 	job: "Computer Science Engineer",
 	friends: ["Mohammed", "Ali", "Ahmed", "Anas", "Omar"],
+	hasDriverLicense: true,
 	calcAge() {
-		return 2024 - this.birthDay;
+		this.age = 2024 - this.birthDay;
+		return this.age;
 	},
-	getFullName() {
-		return `${this.firstName} ${this.lastName}`;
+	getSummary() {
+		return `${this.firstName} ${this.lastName} is a ${this.age} years old ${this.job} that was born in ${this.birthDay}. Elhabib has ${this.friends.length} friends`;
 	},
 };
 
-elhabib.age = elhabib.calcAge();
+console.log(elhabib.calcAge());
 
-console.log("elhabib", elhabib);
-console.log(elhabib.getFullName());
+// console.log("elhabib", elhabib);
+console.log(elhabib.getSummary());
+
+/*
+// Contact management system
+
+let contacts = [
+	{
+		firstName: "Elhabib",
+		lastName: "TOUAOUA",
+		email: "elhabib-touaoua@univ-eloued.dz",
+		phone: "0559592791",
+	},
+	{
+		firstName: "Mohamed",
+		lastName: "Goutoubi",
+		email: "test@gmail.com",
+		phone: "05593545863",
+	},
+	{
+		firstName: "Ahmed",
+		lastName: "said",
+		email: "ahmed-said@gmail.com",
+		phone: "06634589634",
+	},
+];
+
+let addContact = function (firstName, lastName, email, phone) {
+	contacts.push({ firstName, lastName, email, phone });
+};
+
+// console.log(contacts);
+addContact("Samy", "Youcef", "samy.youcef@gmail.com", "0663134554");
+// console.log(contacts);
+
+const getContactByName = function (firstName) {
+	for (let i = 0; i < contacts.length; i++) {
+		if (contacts[i]["firstName"] == firstName) return contacts[i];
+	}
+	return -1;
+};
+
+const displayContact = function (obj) {
+	console.log(`
+  First Name: ${obj.firstName},
+  Last Name: ${obj.lastName},
+  Email: ${obj.email},
+  Phone: ${obj.phone}`);
+};
+
+const foundContact = getContactByName("Elhabib");
+displayContact(foundContact);
+
+
+// Todo List
+
+const todos = [
+	{
+		description: "Buy groceries",
+		dueDate: "2024-05-15",
+		completed: true,
+	},
+	{
+		description: "Finish project report",
+		dueDate: "2024-05-20",
+		completed: true,
+	},
+	{
+		description: "JavaScript Complete course",
+		dueDate: "2024-07-20",
+		completed: true,
+	},
+];
+
+const addTodo = function (description, dueDate, completed) {
+	todos.push({ description, dueDate, completed });
+};
+
+const getIncompleteTodos = function () {
+	let incomplete = [];
+	for (let i = 0; i < todos.length; i++) {
+		if (todos[i].completed == false) incomplete.push(todos[i]);
+	}
+	return incomplete.length != 0 ? incomplete : -1;
+};
+
+const displayTodos = function (todoList) {
+	console.log(todoList);
+};
+
+// Example usage:
+addTodo("Read a book", "2024-05-18", false);
+const incompleteTodos = getIncompleteTodos();
+displayTodos(todos);
+displayTodos(incompleteTodos);
+
+
+
+// Library Catalog
+
+const library = [
+	{
+		title: "To Kill a Mockingbird",
+		author: "Harper Lee",
+		genre: "Classic",
+		isAvailable: true,
+	},
+	{
+		title: "1984",
+		author: "George Orwell",
+		genre: "Dystopian",
+		isAvailable: false,
+	},
+	{
+		title: "Rich Dad Poor Dad",
+		author: "Robert T. Kiyosaki",
+		genre: "Self Development",
+		isAvailable: true,
+	},
+	{
+		title: "Make It Stick",
+		author: "Peter C. Brown",
+		genre: "Self Development",
+		isAvailable: false,
+	},
+	{
+		title: "Atomic Habits",
+		author: "James Clear",
+		genre: "Habits",
+		isAvailable: true,
+	},
+];
+
+const checkoutBook = function (bookTitle) {
+	for (let i = 0; i < library.length; i++) {
+		if (library[i].title == bookTitle) {
+			library[i].isAvailable = false;
+			console.log("The book Successfully Checkout!");
+			return 1;
+		}
+	}
+	console.log("Book does not exist!");
+	return -1;
+};
+
+const returnBook = function (bookTitle) {
+	for (let i = 0; i < library.length; i++) {
+		if (library[i].title == bookTitle) {
+			library[i].isAvailable = true;
+			console.log("The book is now available for booking");
+			return 1;
+		}
+	}
+	console.log("Book does not exist!");
+	return -1;
+};
+
+const searchByGenre = function (genre) {
+	let neededBooks = [];
+	for (let i = 0; i < library.length; i++) {
+		if (library[i].genre == genre) neededBooks.push(library[i]);
+	}
+	return neededBooks.length != 0 ? neededBooks : -1;
+};
+
+const displayAvailableBooks = function (listOfBooks) {
+	console.log(listOfBooks);
+};
+
+// Example usage:
+checkoutBook("1984");
+returnBook("To Kill a Mockingbird");
+
+const classicBooks = searchByGenre("Self Development");
+displayAvailableBooks(library);
+displayAvailableBooks(classicBooks);
+
+
+
+// TodoList with Categories
+
+const todos = [
+	{
+		description: "Buy groceries",
+		dueDate: "2024-05-15",
+		completed: true,
+		categories: ["Personal", "Shopping"],
+	},
+	{
+		description: "Finish project report",
+		dueDate: "2024-05-20",
+		completed: true,
+		categories: ["Work"],
+	},
+	{
+		description: "JavaScript Complete course",
+		dueDate: "2024-07-20",
+		completed: true,
+		categories: ["Self-Development", "Career", "Work"],
+	},
+];
+
+const addTodo = function (description, dueDate, completed) {
+	todos.push({ description, dueDate, completed });
+};
+
+const getIncompleteTodos = function () {
+	let incomplete = [];
+	for (let i = 0; i < todos.length; i++) {
+		if (todos[i].completed == false) incomplete.push(todos[i]);
+	}
+	return incomplete.length != 0 ? incomplete : -1;
+};
+
+const displayTodos = function (todoList) {
+	console.log(todoList);
+};
+
+const getTodosByCategory = function (category) {
+	let neededTodos = [];
+	for (let i = 0; i < todos.length; i++) {
+		if (todos[i].categories.includes(category)) neededTodos.push(todos[i]);
+	}
+	return neededTodos.length != 0 ? neededTodos : -1;
+};
+
+// Example usage:
+const personalTodos = getTodosByCategory("Work");
+console.log(personalTodos);
+// displayCategories(personalTodos);
+*/
