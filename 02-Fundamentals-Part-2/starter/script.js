@@ -175,7 +175,7 @@ let totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(totals);
 
 
-*/
+
 // Objects
 
 let elhabib = {
@@ -190,7 +190,13 @@ let elhabib = {
 		return this.age;
 	},
 	getSummary() {
-		return `${this.firstName} ${this.lastName} is a ${this.age} years old ${this.job} that was born in ${this.birthDay}. Elhabib has ${this.friends.length} friends`;
+		return `${this.firstName} ${this.lastName} is a ${this.age} years old ${
+			this.job
+		} that was born in ${this.birthDay}. Elhabib has ${
+			this.friends.length
+		} friends, and he has ${
+			this.hasDriverLicense ? "a" : "no"
+		} driver license`;
 	},
 };
 
@@ -198,6 +204,18 @@ console.log(elhabib.calcAge());
 
 // console.log("elhabib", elhabib);
 console.log(elhabib.getSummary());
+*/
+
+let mark = {
+	fullName: "Mark Miller",
+	mass: 78,
+	hight: 1.69,
+};
+let john = {
+	fullName: "Mark Miller",
+	mass: 78,
+	hight: 1.69,
+};
 
 /*
 // Contact management system
