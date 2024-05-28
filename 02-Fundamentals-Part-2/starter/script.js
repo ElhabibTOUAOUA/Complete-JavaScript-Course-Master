@@ -464,3 +464,19 @@ const personalTodos = getTodosByCategory("Work");
 console.log(personalTodos);
 // displayCategories(personalTodos);
 */
+
+// for (let i = 1; i <= 10; i++) {
+// 	console.log(`Lifting weight repetition ${i} 🏋️‍♀️`);
+// }
+
+const elhabib = [
+	"Elhabib",
+	"TOUAOUA",
+	2024 - 1996,
+	"Computer Science Engineer",
+	["Mohammed", "Ali", "Ahmed", "Anas", "Omar"],
+];
+
+for (let i = elhabib.length - 1; i >= 0; i--) {
+	console.log(elhabib[i]);
+}
