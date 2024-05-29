@@ -463,7 +463,7 @@ const getTodosByCategory = function (category) {
 const personalTodos = getTodosByCategory("Work");
 console.log(personalTodos);
 // displayCategories(personalTodos);
-*/
+
 
 // for (let i = 1; i <= 10; i++) {
 // 	console.log(`Lifting weight repetition ${i} 🏋️‍♀️`);
@@ -480,3 +480,27 @@ const elhabib = [
 for (let i = elhabib.length - 1; i >= 0; i--) {
 	console.log(elhabib[i]);
 }
+*/
+
+const calcTip = function (bill) {
+	return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+/* Write your code below. Good luck! 🙂 */
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+let tips = [];
+let totals = [];
+
+for (let i = 0; i < bills.length; i++) {
+	tips.push(calcTip(bills[i]));
+	totals.push(bills[i] + tips[i]);
+}
+
+const calcAverage = function (arr) {
+	let sum = 0;
+	for (let i = 0; i < bills.length; i++) {
+		sum += bills[i];
+	}
+	return sum / bills.length;
+};
