@@ -14,49 +14,23 @@ const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, "error", 9, 5];
 
 // 2) Breaking up into sub-problems
 
-const remError = function (arr) {
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] === "error") arr.splice(i, 1);
-	}
-	return arr;
-};
-
-const getMax = function (arr) {
+const tempAmplitude = function (arr) {
+	let min = arr[0];
 	let max = arr[0];
+
 	for (let i = 1; i < arr.length; i++) {
+		if (typeof arr[i] !== "number") continue;
+		min = min > arr[i] ? arr[i] : min;
 		max = max < arr[i] ? arr[i] : max;
 	}
-	return max;
+
+	return max > 0 && min > 0
+		? max - min
+		: max > 0 && min < 0
+		? max + min
+		: max < 0 && min < 0
+		? -max + min
+		: -1;
 };
 
-const getMin = function (arr) {
-	let min = arr[0];
-	for (let i = 1; i < arr.length; i++) {
-		min = min > arr[i] ? arr[i] : min;
-	}
-	return min;
-};
-
-const temAmplitude = function (arr) {
-	// remove error values from the array
-	const arrNoError = remError(arr);
-	const max = getMax(arrNoError);
-	const min = getMin(arrNoError);
-	// return min < 0 && (max > 0 || max < 0)
-	// 	? max + min
-	// 	: max > 0 && min > 0
-	// 	? max - min
-	// 	: -1;
-	if (max > 0 && min > 0) return max - min;
-	else if (max > 0 && min < 0) return max + min;
-	else if (max < 0 && min < 0) return -max + min;
-	else return -1;
-};
-
-// let temNoError = remError(temperatures);
-// console.log(temNoError);
-
-// console.log(`Max: ${getMax(temNoError)}
-// Min: ${getMin(temNoError)}`);
-
-console.log(temAmplitude(temperatures));
+console.log(tempAmplitude(temperatures));
