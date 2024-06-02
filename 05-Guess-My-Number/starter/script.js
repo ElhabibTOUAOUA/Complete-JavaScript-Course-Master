@@ -16,6 +16,8 @@
 // 4. Implement the high score
 // 5. Implement the reset button
 
+/*
+
 // Selecting elements
 const number = document.querySelector('.number');
 const score = document.querySelector('.score');
@@ -68,3 +70,25 @@ again.addEventListener('click', function () {
   guess.value = '';
   secretNumber = Math.trunc(Math.random() * 20 + 1);
 });
+
+
+// get elements by tag name will return an array of elements with the provided tag name
+const elementsByTagName = document.getElementsByTagName('p');
+
+// elementsByTagName[0].innerHTML = 'Hello World';
+console.log(elementsByTagName[2].innerText);
+
+// get element by id will return the element with the specific ID
+let elements = document.getElementById('title').textContent;
+console.log(elements);
+
+// get element by class name will return an array of elements with the provided class name
+const elemByClassName = document.getElementsByClassName('number')[0];
+// elemByClassName.innerText = 12;
+console.log(elemByClassName.textContent);
+
+*/
+
+const check = document.querySelector('.check');
+check.addEventListener('click', function () {});
+console.log(check);
