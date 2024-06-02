@@ -5,6 +5,9 @@
 
 // body background color in winning: '#60b347' and width of the number: '30rem'
 // body background color in losing: '#222' and width of the number: '15rem'
+// when the guess is too high: '📈 Too high!' and when the guess is too low: '📉 Too low!'
+// when the guess is correct: '🎉 Correct Number!'
+// when the guess is not a number: '⛔ Not A number'
 
 // steps to implement the game
 // 1. Select elements
@@ -20,7 +23,7 @@ const highscore = document.querySelector('.highscore');
 const guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
 const message = document.querySelector('.message');
-
+const again = document.querySelector('.again');
 // Random number between 1 and 20
 let secretNumber = Math.trunc(Math.random() * 20 + 1);
 
@@ -36,12 +39,32 @@ function msgDisplay(msg) {
 // Function to check the number
 check.addEventListener('click', function () {
   const guessedNumber = Number(guess.value);
-  console.log(guessedNumber);
 
   // check if the entered value is not a number
   if (!guessedNumber) {
     msgDisplay('⛔ Not A number');
+  } else if (guessedNumber === secretNumber) {
+    msgDisplay('🎉 Correct Number!');
+    highScoreValue = highScoreValue < scoreValue ? scoreValue : highScoreValue;
+    highscore.textContent = highScoreValue;
+    number.textContent = guessedNumber;
+    document.body.style.backgroundColor = '#60b347';
+  } else {
+    msgDisplay(
+      `${guessedNumber > secretNumber ? '📈 Too high!' : '📉 Too low!'}`
+    );
+    scoreValue--;
+    score.textContent = scoreValue;
   }
 });
 
 // Reset the game
+again.addEventListener('click', function () {
+  document.body.style.backgroundColor = '#222';
+  number.textContent = '?';
+  msgDisplay('Start guessing...');
+  scoreValue = 20;
+  score.textContent = scoreValue;
+  guess.value = '';
+  secretNumber = Math.trunc(Math.random() * 20 + 1);
+});
