@@ -16,8 +16,6 @@
 // 4. Implement the high score
 // 5. Implement the reset button
 
-/*
-
 // Selecting elements
 const number = document.querySelector('.number');
 const score = document.querySelector('.score');
@@ -38,6 +36,18 @@ function msgDisplay(msg) {
   message.textContent = msg;
 }
 
+const resetGame = function () {
+  console.log(`Again button was clicked or you lost the game`);
+  document.body.style.backgroundColor = '#222';
+  number.style.width = '15rem';
+  number.textContent = '?';
+  msgDisplay('Start guessing...');
+  scoreValue = 20;
+  score.textContent = scoreValue;
+  guess.value = '';
+  secretNumber = Math.trunc(Math.random() * 20 + 1);
+};
+
 // Function to check the number
 check.addEventListener('click', function () {
   const guessedNumber = Number(guess.value);
@@ -51,26 +61,23 @@ check.addEventListener('click', function () {
     highscore.textContent = highScoreValue;
     number.textContent = guessedNumber;
     document.body.style.backgroundColor = '#60b347';
-  } else {
+    number.style.width = '30rem';
+  } else if (scoreValue > 1) {
     msgDisplay(
       `${guessedNumber > secretNumber ? '📈 Too high!' : '📉 Too low!'}`
     );
     scoreValue--;
     score.textContent = scoreValue;
+  } else {
+    msgDisplay(`💥 You lost the game! click again!`);
+    score.textContent = `0`;
   }
 });
 
 // Reset the game
-again.addEventListener('click', function () {
-  document.body.style.backgroundColor = '#222';
-  number.textContent = '?';
-  msgDisplay('Start guessing...');
-  scoreValue = 20;
-  score.textContent = scoreValue;
-  guess.value = '';
-  secretNumber = Math.trunc(Math.random() * 20 + 1);
-});
+again.addEventListener('click', resetGame);
 
+/*
 
 // get elements by tag name will return an array of elements with the provided tag name
 const elementsByTagName = document.getElementsByTagName('p');
@@ -87,8 +94,9 @@ const elemByClassName = document.getElementsByClassName('number')[0];
 // elemByClassName.innerText = 12;
 console.log(elemByClassName.textContent);
 
-*/
+
 
 const check = document.querySelector('.check');
 check.addEventListener('click', function () {});
 console.log(check);
+*/
