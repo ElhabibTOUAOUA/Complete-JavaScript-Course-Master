@@ -3,16 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <div id="toDoApp">
-      <input type="text" id="newTask" placeholder="Add a new task..." />
-      <button id="addTask">Add</button>
-      <ul id="taskList"></ul>
-      <div>
-        <button id="filterAll">All</button>
-        <button id="filterActive">Active</button>
-        <button id="filterCompleted">Completed</button>
+    <div class="container">
+      <div class="todo">
+        <div class="todo-head">
+          <h1>To-Do List</h1>
+        </div>
+        <div class="todo-body">
+          <div class="todo-input">
+            <input type="text" / class="input">
+            <button class="btn add-btn"><i class="fa fa-plus"></i> Add</button>
+          </div>
+          <div class="todo-content">
+            <ul class="todos-list">
+              <li class="todo-item">
+                <p>Create a todo-list app</p>
+                <button class="btn delete-btn">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </li>
+              <li class="todo-item">
+                <p>Style the app using css</p>
+                <button class="btn delete-btn">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </li>
+              <li class="todo-item">
+                <p>Add functionality to buttons</p>
+                <button class="btn delete-btn">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </li>
+              <li class="todo-item">
+                <p>Add functionality to buttons</p>
+                <button class="btn delete-btn">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
