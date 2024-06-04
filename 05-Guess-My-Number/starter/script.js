@@ -15,7 +15,7 @@
 // 3. Implement the game logic
 // 4. Implement the high score
 // 5. Implement the reset button
-
+/*
 // Selecting elements
 const number = document.querySelector('.number');
 const score = document.querySelector('.score');
@@ -62,22 +62,33 @@ check.addEventListener('click', function () {
     number.textContent = guessedNumber;
     document.body.style.backgroundColor = '#60b347';
     number.style.width = '30rem';
-  } else if (scoreValue > 1) {
+  } else if (
+    guessedNumber !== secretNumber &&
+    guessedNumber > 0 &&
+    guessedNumber <= 20
+  ) {
     msgDisplay(
       `${guessedNumber > secretNumber ? '📈 Too high!' : '📉 Too low!'}`
     );
     scoreValue--;
     score.textContent = scoreValue;
+
+    // checking if you lost the game
+    if (scoreValue < 1) {
+      msgDisplay(`💥 You lost the game! click again!`);
+      score.textContent = `0`;
+      number.textContent = secretNumber;
+      document.body.style.backgroundColor = '#E67657';
+    }
   } else {
-    msgDisplay(`💥 You lost the game! click again!`);
-    score.textContent = `0`;
+    msgDisplay(`Please enter a positive value between 1 and 20!`);
   }
 });
 
 // Reset the game
 again.addEventListener('click', resetGame);
 
-/*
+
 
 // get elements by tag name will return an array of elements with the provided tag name
 const elementsByTagName = document.getElementsByTagName('p');
@@ -100,3 +111,5 @@ const check = document.querySelector('.check');
 check.addEventListener('click', function () {});
 console.log(check);
 */
+
+// Modal window challenge
